@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -35,4 +24,56 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.container {
+  max-width: 100vw; /* Adjust the max-width according to your design */
+  margin: 0 auto;
+  padding: 0; /* Remove padding */
+}
+
+.full-width-image {
+  width: 100%; /* Set the width of the image to 100% */
+  height: 100vh; /* Maintain aspect ratio */
+  display: block;
+  margin-bottom: 20px; /* Add some space between the image and other content */
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.overlay-text h1 {
+  font-size: 3em;
+  margin: 0;
+}
+
+.overlay-text p {
+  font-size: 1.5em;
+  margin: 10px 0 0;
+}
+
+.content {
+  /* Add styles for your content */
+}
+
+.transparent-button {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.transparent-button:hover {
+  background-color: white;
+  color: #333;
 }
