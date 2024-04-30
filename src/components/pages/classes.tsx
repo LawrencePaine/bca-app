@@ -1,58 +1,61 @@
 import React, { useState } from 'react';
-import Navbar from '../navbar/navbar';
 import '../../App.css';
+import './classes.css';
 
-// Define the type for the imagesByDay object
 type ImagesByDay = {
   [key: string]: string[];
 };
 
-// Define the images for each day of the week
 const imagesByDay: ImagesByDay = {
-  monday: ['/images/monday1.jpg', '/images/monday2.jpg', '/images/monday3.jpg'],
-  tuesday: ['/images/tuesday1.jpg', '/images/tuesday2.jpg', '/images/tuesday3.jpg'],
-  wednesday: ['/images/wednesday1.jpg', '/images/wednesday2.jpg', '/images/wednesday3.jpg'],
-  thursday: ['/images/thursday1.jpg', '/images/thursday2.jpg', '/images/thursday3.jpg'],
-  friday: ['/images/friday1.jpg', '/images/friday2.jpg', '/images/friday3.jpg'],
+  Monday: ['/images/Monday.jpg'],
+  Tuesday: ['/images/Tuesday.jpg'],
 };
 
-const ClassesPage: React.FC = () => {
-  // State to keep track of the selected day and image index
-  const [selectedDay, setSelectedDay] = useState<string>('monday');
+const Classes: React.FC = () => {
+  const [selectedDay, setSelectedDay] = useState<string>('Monday');
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
 
-  // Function to handle clicking on the previous image
   const prevImage = () => {
-    setSelectedImageIndex((prevIndex) => (prevIndex === 0 ? imagesByDay[selectedDay].length - 1 : prevIndex - 1));
+    setSelectedImageIndex((prevIndex) => (prevIndex === 0 ? imagesByDay[selectedDay]?.length - 1 : prevIndex - 1));
   };
 
-  // Function to handle clicking on the next image
   const nextImage = () => {
-    setSelectedImageIndex((prevIndex) => (prevIndex === imagesByDay[selectedDay].length - 1 ? 0 : prevIndex + 1));
+    setSelectedImageIndex((prevIndex) => (prevIndex + 1) % imagesByDay[selectedDay]?.length);
+    if (selectedImageIndex + 1 === imagesByDay[selectedDay]?.length) {
+      setSelectedDay((prevDay) => {
+        const days = Object.keys(imagesByDay);
+        const currentIndex = days.indexOf(prevDay);
+        return currentIndex === days.length - 1 ? days[0] : days[currentIndex + 1];
+      });
+    }
+  };
+
+  const changeDay = (day: string) => {
+    setSelectedDay(day);
+    setSelectedImageIndex(0); // Reset image index to display the first image when the day changes
   };
 
   return (
-    <>
-      <Navbar />
-      <div className="container">
-        {/* Title */}
-        <h1 className="centered-title">Classes</h1>
-        {/* Image collection display */}
-        <div className="image-display">
-          {/* Image */}
-          <img src={imagesByDay[selectedDay][selectedImageIndex]} alt={selectedDay} className="class-image" />
-          {/* Left arrow */}
-          <button className="arrow-button" onClick={prevImage}>
-            {'<'}
-          </button>
-          {/* Right arrow */}
-          <button className="arrow-button" onClick={nextImage}>
-            {'>'}
-          </button>
-        </div>
+    <div className="container">
+      <h1 className="centered-title">Classes</h1>
+      <div className="image-display">
+        <button className="arrow-button left-arrow" onClick={prevImage}>
+          {'<'}
+        </button>
+        <img src={imagesByDay[selectedDay]?.[selectedImageIndex]} alt={selectedDay} className="class-image" />
+        <button className="arrow-button right-arrow" onClick={nextImage}>
+          {'>'}
+        </button>
       </div>
-    </>
+      <div className="day-selector">
+        {Object.keys(imagesByDay).map((day) => (
+          <button key={day} className={`day-button ${selectedDay === day ? 'active' : ''}`} onClick={() => changeDay(day)}>
+            {day}
+          </button>
+        ))}
+      </div>
+    </div>
   );
 };
 
-export default ClassesPage;
+export default Classes;

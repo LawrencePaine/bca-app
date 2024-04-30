@@ -1,40 +1,51 @@
-.centered-title {
-    text-align: center;
-  }
-  
-  .image-display {
-    position: relative;
-    margin-top: 20px;
-  }
-  
-  .class-image {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  .arrow-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    font-size: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .arrow-button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-  
-  .arrow-button:first-child {
-    left: 0;
-  }
-  
-  .arrow-button:last-child {
-    right: 0;
-  }
-  
+/* Add styles for left and right arrows */
+.arrow-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.left-arrow {
+  left: 10px; /* Adjust the position of the left arrow */
+}
+
+.right-arrow {
+  right: 10px; /* Adjust the position of the right arrow */
+}
+
+.image-display {
+  position: relative;
+  padding: 20px; /* Add padding to the image display */
+}
+
+.class-image {
+  width: 100%; /* Ensure the image fills its container */
+  height: auto; /* Maintain aspect ratio */
+  max-height: calc(100vh - 160px); /* Adjust the height of the image container */
+  display: block; /* Ensure the image doesn't have extra space */
+  margin: 0 auto; /* Center the image horizontally */
+}
+
+.day-selector {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.day-button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  font-size: 16px;
+  border: none;
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+}
+
+.day-button.active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
