@@ -1,86 +1,61 @@
 import React from 'react';
-import './home.css';
-import Map from './map';
-import type { FormProps } from 'antd';
-import { Button, Form, Input } from 'antd';
-
-type FieldType = {
-  firstname?: string;
-  lastname?: string;
-  email?: string;
-  message?: string;
-};
-
-const { TextArea } = Input;
-
-const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
-  console.log('Success:', values);
-};
-
-const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (errorInfo) => {
-  console.log('Failed:', errorInfo);
-};
+import { Form, Input, Button } from 'antd';
+import {APIProvider, Map} from '@vis.gl/react-google-maps';
 
 const Contact: React.FC = () => {
+  const onFinish = (values: any) => {
+    console.log('Received values:', values);
+  };
+
   return (
     <>
-      <div className="section-container">
-        <div className="section-content">
-          <Form
-            name="basic"
-            labelCol={{ span: 8 }}
-            wrapperCol={{ span: 16 }}
-            style={{ maxWidth: 600 }}
-            initialValues={{ remember: true }}
-            onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-            autoComplete="off"
-            >
-            <Form.Item<FieldType>
-              label="First name"
-              name="firstname"
-              rules={[{ required: true, message: 'Please input your first name' }]}
-            >
-              <Input />
-            </Form.Item>
+      <h1>Contact Us</h1>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Form
+          name="contact"
+          initialValues={{ remember: true }}
+          onFinish={onFinish}
+          style={{ width: '50%' }}
+        >
+          <Form.Item
+            label="Name"
+            name="name"
+            rules={[{ required: true, message: 'Please input your name!' }]}
+          >
+            <Input />
+          </Form.Item>
 
-            <Form.Item<FieldType>
-              label="Last name"
-              name="lastname"
-              rules={[{ required: true, message: 'Please input your last name' }]}
-            >
-              <Input />
-            </Form.Item>
+          <Form.Item
+            label="Email"
+            name="email"
+            rules={[{ required: true, message: 'Please input your email!' }]}
+          >
+            <Input />
+          </Form.Item>
 
-            <Form.Item<FieldType>
-              label="Email Address"
-              name="email"
-              rules={[{ required: true, message: 'Please input your email address' }]}
-            >
-              <Input />
-            </Form.Item>
+          <Form.Item
+            label="Message"
+            name="message"
+            rules={[{ required: true, message: 'Please input your message!' }]}
+          >
+            <Input.TextArea />
+          </Form.Item>
 
-            <Form.Item<FieldType>
-              label="Message"
-              name="message"
-              rules={[{ required: true, message: 'Please input your message' }]}
-            >
-              <TextArea rows={4} />
-            </Form.Item>
-
-            <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-              <Button type="primary" htmlType="submit">
-                Submit
-              </Button>
-            </Form.Item>
-          </Form>
-          <div style={{ marginLeft: 20 }}>
-            <Map 
-                address="1600 Amphitheatre Parkway, Mountain View, California, United States"
-                width="50%"
-            />
-          </div>
-        </div>
+          <Form.Item>
+            <Button type="primary" htmlType="submit">
+              Submit
+            </Button>
+          </Form.Item>
+        </Form>
+        <APIProvider apiKey='AIzaSyBp1ZoJcrNnnrCtBgesIT_Og85UNtpW464'>
+          <Map
+            style={{width: '100vw', height: '100vh'}}
+            defaultCenter={{lat: 53.84650944435301, lng: -0.40007493334792327}}
+            defaultZoom={3}
+            gestureHandling={'greedy'}
+            disableDefaultUI={true}
+          />
+        </APIProvider>
       </div>
     </>
   );
