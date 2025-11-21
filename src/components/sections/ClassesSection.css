@@ -1,0 +1,36 @@
+.classes-section {
+    padding: 4rem 0;
+    background-color: #fff;
+}
+
+.classes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.class-card {
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.class-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-embed {
+    text-align: center;
+}
+
+.gymdesk-placeholder {
+    background-color: #f0f0f0;
+    padding: 2rem;
+    border: 1px dashed #999;
+    border-radius: 8px;
+    margin-top: 1rem;
+}

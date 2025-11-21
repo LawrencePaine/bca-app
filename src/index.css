@@ -1,13 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Anton&display=swap');
+
+:root {
+  --primary-bg: #1C1C1C;
+  /* Main dark background */
+  --secondary-bg: #2A2A2A;
+  /* Slightly lighter for cards/contrast */
+  --text-primary: #ffffff;
+  /* Keeping white for body text readability */
+  --text-heading: #45A7BB;
+  /* Main heading / title */
+  --accent-color: #EB6336;
+  /* Buttons and selected nav item */
+  --accent-hover: #d4552b;
+  --link-color: #F2CC47;
+  /* Social media icons / hyperlinks */
+  --font-heading: 'Anton', sans-serif;
+  --font-body: 'Alef', sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-body);
+  background-color: var(--primary-bg);
+  color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--text-heading);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-color);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

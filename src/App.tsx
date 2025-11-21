@@ -1,31 +1,31 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar/navbar';
-import Home from './pages/home';
-import Team from './pages/team';
-import Classes from './pages/classes';
-import Signup from './pages/signup';
-import Store from './pages/store';
-import Contact from './pages/contact';
+import HeroSection from './components/sections/HeroSection';
+import AboutSection from './components/sections/AboutSection';
+import ClassesSection from './components/sections/ClassesSection';
+import YouthSection from './components/sections/YouthSection';
+import FacilitiesSection from './components/sections/FacilitiesSection';
+import TeamSection from './components/sections/TeamSection';
+import MerchSection from './components/sections/MerchSection';
+import ContactSection from './components/sections/ContactSection';
 import './App.css';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/team" element={<Team />} />
-            <Route path="/classes" element={<Classes />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/store" element={<Store />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </div>
-      </div>
-    </Router>
+    <div className="App">
+      <img src="/images/HorizontalLogo.png" alt="BCA Logo" className="flagpole-logo" />
+      <Navbar />
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <ClassesSection />
+        <YouthSection />
+        <FacilitiesSection />
+        <TeamSection />
+        <MerchSection />
+        <ContactSection />
+      </main>
+    </div>
   );
 }
 

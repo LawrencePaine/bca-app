@@ -1,34 +1,87 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './navbar.css';
 
 const Navbar: React.FC = () => {
-  const [showMembersDropdown, setShowMembersDropdown] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  const toggleMembersDropdown = () => {
-    setShowMembersDropdown(!showMembersDropdown);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const sections = [
+    { id: 'hero', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'classes', label: 'Classes' },
+    { id: 'youth', label: 'Youth' },
+    { id: 'facilities', label: 'Facilities' },
+    { id: 'team', label: 'Team' },
+    { id: 'merch', label: 'Merch' },
+    { id: 'contact', label: 'Contact' },
+  ];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    sections.forEach((section) => {
+      const element = document.getElementById(section.id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const handleMembersOptionClick = () => {
-    setShowMembersDropdown(false);
+  const handleNavClick = (id: string) => {
+    setIsMobileMenuOpen(false);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <nav className="navbar">
-      <div className="navbar-left">
-        {/* Left side navigation items */}
-        <a href="/" className="navbar-item">Home</a>
-        <a href="/team" className="navbar-item">Team</a>
-        <a href="/classes" className="navbar-item">Classes</a>
+    <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+
+
+      <div className={`navbar-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+        {sections.map((section) => (
+          <a
+            key={section.id}
+            href={`#${section.id}`}
+            className={`navbar-item ${activeSection === section.id ? 'active' : ''}`}
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick(section.id);
+            }}
+          >
+            {section.label}
+          </a>
+        ))}
       </div>
-      {/* Centered logo */}
-      <div className="navbar-logo">
-        <img src="/images/logo.jpg" alt="Logo" className="logo-image" />
-      </div>
-      <div className="navbar-right">
-        {/* Right side navigation items */}
-          <a href="/memberships" className="navbar-item">Memberships</a>
-          <a href="/signup" className="navbar-item">Sign-up</a>
-          <a href="/contact" className="navbar-item">Contact</a>
+
+      <div className="mobile-menu-toggle" onClick={toggleMobileMenu}>
+        <span className="bar"></span>
+        <span className="bar"></span>
+        <span className="bar"></span>
       </div>
     </nav>
   );
