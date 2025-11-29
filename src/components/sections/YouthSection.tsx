@@ -25,13 +25,7 @@ const YouthSection: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="schedule-embed" style={{ marginTop: '40px', textAlign: 'center' }}>
-                    <h3>Youth Schedule</h3>
-                    {/* GymDesk Youth Schedule Embed Placeholder */}
-                    <div className="gymdesk-placeholder" style={{ padding: '20px', backgroundColor: 'var(--secondary-bg)', marginTop: '20px' }}>
-                        <p>GymDesk Youth Schedule Embed Loading...</p>
-                    </div>
-                </div>
+
             </div>
         </section>
     );

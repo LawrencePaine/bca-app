@@ -22,13 +22,7 @@ const ClassesSection: React.FC = () => {
                         <p>Integrate striking and grappling for complete fighting skills.</p>
                     </div>
                 </div>
-                <div className="schedule-embed" style={{ marginTop: '40px', textAlign: 'center' }}>
-                    <h3>Class Schedule</h3>
-                    {/* GymDesk Embed Placeholder */}
-                    <div className="gymdesk-placeholder" style={{ padding: '20px', backgroundColor: 'var(--secondary-bg)', marginTop: '20px' }}>
-                        <p>GymDesk Schedule Embed Loading...</p>
-                    </div>
-                </div>
+
             </div>
         </section>
     );

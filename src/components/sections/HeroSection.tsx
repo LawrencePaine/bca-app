@@ -7,7 +7,7 @@ const HeroSection: React.FC = () => {
             <div className="hero-content">
                 <h1>Welcome to BCA</h1>
                 <p>World Class Brazilian Jiu Jitsu & MMA in the heart of the city.</p>
-                <button className="cta-button">Start Your Journey</button>
+                <a href="#contact" className="cta-button">Start Your Journey</a>
             </div>
         </section>
     );

@@ -20,9 +20,10 @@ const Navbar: React.FC = () => {
     { id: 'about', label: 'About' },
     { id: 'classes', label: 'Classes' },
     { id: 'youth', label: 'Youth' },
+    { id: 'timetable', label: 'Timetable' },
     { id: 'facilities', label: 'Facilities' },
     { id: 'team', label: 'Team' },
-    { id: 'merch', label: 'Merch' },
+
     { id: 'contact', label: 'Contact' },
   ];
 

@@ -4,9 +4,11 @@ import HeroSection from './components/sections/HeroSection';
 import AboutSection from './components/sections/AboutSection';
 import ClassesSection from './components/sections/ClassesSection';
 import YouthSection from './components/sections/YouthSection';
+import TimetableSection from './components/sections/TimetableSection';
 import FacilitiesSection from './components/sections/FacilitiesSection';
 import TeamSection from './components/sections/TeamSection';
-import MerchSection from './components/sections/MerchSection';
+
+
 import ContactSection from './components/sections/ContactSection';
 import './App.css';
 
@@ -20,9 +22,10 @@ function App() {
         <AboutSection />
         <ClassesSection />
         <YouthSection />
+        <TimetableSection />
         <FacilitiesSection />
         <TeamSection />
-        <MerchSection />
+
         <ContactSection />
       </main>
     </div>
