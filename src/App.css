@@ -157,6 +157,23 @@
   line-height: 1.6;
 }
 
+.levels-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.levels-list li {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.levels-list li:last-child {
+  border-bottom: none;
+}
+
 .section-subtitle {
   text-align: center;
   max-width: 800px;

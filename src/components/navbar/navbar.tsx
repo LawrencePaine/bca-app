@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
     { id: 'timetable', label: 'Timetable' },
     { id: 'facilities', label: 'Facilities' },
     { id: 'team', label: 'Team' },
-
+    { id: 'events', label: 'Events' },
     { id: 'contact', label: 'Contact' },
   ];
 

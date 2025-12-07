@@ -25,11 +25,6 @@ const FacilitiesSection: React.FC = () => {
                         <p>Relax and recover in our infrared sauna.</p>
                     </div>
                     <div className="card">
-                        <div className="facility-image-placeholder" style={{ height: '200px', backgroundColor: '#333', marginBottom: '20px' }}>PT Room</div>
-                        <h3>Physical Therapy Room</h3>
-                        <p>On-site physical therapy and massage services.</p>
-                    </div>
-                    <div className="card">
                         <div className="facility-image-placeholder" style={{ height: '200px', backgroundColor: '#333', marginBottom: '20px' }}>Wellness Room</div>
                         <h3>Wellness Room</h3>
                         <p>A quiet space for meditation, stretching, and mental recovery.</p>

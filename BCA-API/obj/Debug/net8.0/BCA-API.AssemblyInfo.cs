@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BCA-API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2890d15dbee2d56f2739df86dd4eb98901e32a37")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3c3858b665e709ee3a8aab3472bfbaef3b065713")]
 [assembly: System.Reflection.AssemblyProductAttribute("BCA-API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BCA-API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
